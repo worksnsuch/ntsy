@@ -1,3 +1,35 @@
+// Import all HTML components
+import '../html/sidebar.js';
+import '../html/homepage.js';
+import '../html/editor.js';
+import '../html/profile.js';
+import '../html/settings.js';
+import '../html/musicPlayer.js';
+import '../html/modals.js';
+import '../html/chatBuddy.js';
+import '../html/auth.js';
+
+// Import all JS managers
+import './componentLoader.js';
+import './modal.js';
+import './clock.js';
+import './alarmManager.js';
+import './foldersManager.js';
+import './priorityTracker.js';
+import './notesManager.js';
+import './calendar.js';
+import './pomodoroTimer.js';
+import './musicPlayer.js';
+import './imageManager.js';
+import './pdfManager.js';
+import './chatBuddy.js';
+import './responsive.js';
+import './settingsManager.js';
+import './profileManager.js';
+import './printManager.js';
+import './authManager.js';
+import './supabaseClient.js';
+
 document.addEventListener("DOMContentLoaded", async () => {
     // Apply theme immediately before components load to prevent flash
     const savedTheme = localStorage.getItem('ntsy_theme') || 'dark';
