@@ -18,7 +18,7 @@ window.AUTH_FRAGMENT = `
     <div class="split-layout">
       <!-- Dark Side (Left) -->
       <div class="split-half split-dark logo-center">
-        <img class="auth-logo" src="/assets/favicon.png" style="width: 140px; height: auto;" alt="Logo">
+        <img class="auth-logo" src="src/assets/favicon.png" style="width: 140px; height: auto;" alt="Logo">
       </div>
       <!-- White Side (Right) -->
       <div class="split-half split-white flex-center direction-col">
@@ -176,7 +176,7 @@ window.AUTH_FRAGMENT = `
   <!-- 6. Email Confirmation View -->
   <div id="confirmation-auth" class="auth-view center-layout swipe-right">
     <div class="confirmation-container text-center">
-      <img class="auth-logo mb-6" src="/assets/favicon.png" style="width: 60px; height: auto;" alt="Logo">
+      <img class="auth-logo mb-6" src="src/assets/favicon.png" style="width: 60px; height: auto;" alt="Logo">
       <h2 class="mb-2" style="color: var(--text-primary);">Almost there!</h2>
       <p class="subtitle mb-8" style="color: var(--text-secondary);">We've sent a verification link to your email.<br>Please confirm your email to activate your account,<br>then click below to sign in.</p>
       <div class="smiley-icon mb-8">
