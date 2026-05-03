@@ -1,0 +1,172 @@
+/* css/calendar.css */
+.calendar-widget {
+  min-height: auto;
+}
+
+.calendar-grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day-label {
+  flex: 1 0 14.28%;
+  max-width: 14.28%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.calendar-days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.date-cell {
+  width: 14.28%;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 1px;
+  color: var(--text-primary);
+  position: relative;
+  transition: all 0.2s;
+}
+
+.date-cell:hover {
+  background-color: var(--bg-panel-hover, rgba(255, 255, 255, 0.1));
+}
+
+.date-cell.muted {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.date-cell.today {
+  color: var(--accent-yellow);
+  font-weight: 700;
+}
+
+.date-cell.selected {
+  background-color: var(--text-primary);
+  color: var(--bg-dark);
+  font-weight: 700;
+}
+
+.date-cell.has-event::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--accent-red);
+}
+
+.date-cell.selected.has-event::after {
+  background-color: var(--accent-red);
+}
+
+.calendar-event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.calendar-event-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding-right: 8px;
+}
+
+.calendar-event-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calendar-event-time {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.calendar-event-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Custom Select for Pickers */
+.custom-select-container {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-display {
+  width: 100%;
+  padding: 10px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  font-size: 13px;
+}
+
+.custom-select-display:hover {
+  border-color: var(--text-secondary);
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #1c1c1e;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  display: none;
+  flex-direction: column;
+}
+
+.custom-select-dropdown.open {
+  display: flex;
+}
+
+.custom-select-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 13px;
+  transition: background 0.1s, color 0.1s;
+}
+
+.custom-select-option:hover, .custom-select-option.selected {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-primary);
+}

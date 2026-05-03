@@ -1,0 +1,334 @@
+/* Premium Settings Styles */
+.settings-container {
+    width: 1000px;
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-tabs {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.settings-tab {
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.settings-tab:hover {
+    color: var(--text-primary);
+}
+
+.settings-tab.active {
+    color: var(--accent-yellow);
+}
+
+.settings-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-yellow);
+    border-radius: 2px;
+}
+
+.settings-section {
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.settings-section.active {
+    display: block;
+    width: 100%;
+}
+
+#settings-view.view.active-view {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Feature Toggle List */
+.feature-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 900px) {
+    .feature-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: background 0.2s ease, transform 0.2s ease;
+    height: 100%;
+    min-height: 72px; /* Uniform height for items */
+    box-sizing: border-box;
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.feature-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feature-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 214, 10, 0.1);
+    color: var(--accent-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-details h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.feature-details p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* Apple Style Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background-color: var(--accent-yellow);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+    background-color: var(--bg-dark);
+}
+
+input:disabled + .slider {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Reordering Styles */
+.draggable-item {
+    cursor: grab;
+    user-select: none;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.draggable-item.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.drag-handle {
+    padding: 0 8px 0 0;
+    color: var(--text-secondary);
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.draggable-item:hover .drag-handle {
+    opacity: 1;
+}
+
+.draggable-item.dragging .drag-handle {
+    cursor: grabbing;
+}
+
+
+/* Font Management Styles */
+.font-management-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.font-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.font-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.font-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.delete-font-btn {
+    color: var(--accent-red);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.delete-font-btn:hover {
+    opacity: 1;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--border-color);
+    border-radius: 16px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Unified Theme Selection Styles */
+.theme-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.theme-card {
+    background: var(--bg-panel);
+    border: 2px solid transparent;
+    padding: 32px 24px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+}
+
+.theme-card:hover {
+    transform: translateY(-4px);
+    background: var(--bg-panel-hover);
+    border-color: var(--border-color);
+}
+
+.theme-card.active {
+     border-color: var(--accent-yellow);
+     box-shadow: 0 10px 30px rgba(255, 214, 10, 0.1);
+}
+
+.theme-preview-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.theme-card:hover .theme-preview-box {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.theme-card h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.theme-card p {
+    margin: 6px 0 0 0;
+    font-size: 12px;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+#theme-dark-card .theme-preview-box {
+    background: #0A0A0B;
+}
+
+#theme-light-card .theme-preview-box {
+    background: #FFFFFF;
+}

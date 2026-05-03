@@ -1,0 +1,112 @@
+/* Mobile Responsive Refinements */
+@media (max-width: 1024px) {
+  .notes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 2000;
+    transform: translateX(-100%);
+    transition: transform var(--transition-fluid);
+    width: 280px;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 1500;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .sidebar-overlay.visible {
+    display: block;
+    opacity: 1;
+  }
+
+  .main-content {
+    padding: 0 16px 40px 16px;
+  }
+
+  .homepage-sticky-header {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .top-add-btn span {
+    display: none;
+  }
+
+  .top-add-btn {
+    width: 44px;
+    padding: 0;
+  }
+
+  .search-container {
+    width: 200px;
+  }
+
+  .search-container:focus-within {
+    width: 100%;
+  }
+
+  .note-body-wrapper {
+    padding: 0 20px 100px 20px;
+  }
+
+  .editor-header {
+    padding: 20px;
+  }
+
+  .note-title-input {
+    font-size: 28px;
+  }
+
+  /* Split View Mobile Handle */
+  .split-active .note-body-wrapper {
+    max-width: 100%;
+    height: 50%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .split-active .pdf-panel {
+    height: 50%;
+  }
+
+  .editor-container.split-active {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header h1 {
+    font-size: 24px;
+  }
+
+  .widget {
+    padding: 12px;
+  }
+
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+}

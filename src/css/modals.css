@@ -1,0 +1,214 @@
+/* High-Fidelity Modal Components */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+  transform: translateZ(0);
+  padding: 20px;
+}
+
+.modal-overlay.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-box {
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  will-change: transform, opacity;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.modal-overlay.visible .modal-box {
+  transform: scale(1) translateY(0);
+}
+
+/* Specific Modal Sizes */
+#confirm-modal .modal-box, 
+#passcode-modal .modal-box {
+  width: 320px;
+}
+
+#pdf-mode-modal .modal-box {
+  width: 440px;
+}
+
+#image-zoom-modal .modal-box {
+  width: 80vw;
+  max-width: 1000px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Modal Content Styling */
+.modal-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.modal-box p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* PDF Mode Selection */
+.pdf-mode-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.pdf-mode-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  text-align: left;
+}
+
+.pdf-mode-option:hover {
+  background: var(--bg-secondary-hover);
+  border-color: var(--text-secondary);
+  transform: translateY(-2px);
+}
+
+.pdf-mode-icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-yellow);
+}
+
+.pdf-mode-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.pdf-mode-info p {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Common Modal Buttons */
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.modal-btn {
+  flex: 1;
+  height: 44px;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+.modal-btn.secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.modal-btn.secondary:hover {
+  background: var(--bg-secondary-hover);
+}
+
+.modal-btn.primary {
+  background: var(--text-primary);
+  color: var(--bg-dark);
+}
+
+.modal-btn.primary:hover {
+  background: var(--bg-panel-hover);
+  transform: translateY(-1px);
+}
+
+.modal-btn.danger {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+.modal-btn.danger:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* Passcode Input Grid */
+.passcode-grid {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.passcode-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-secondary);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.passcode-dot.filled {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+  transform: scale(1.2);
+}
+
+/* Loading Overlay */
+#loading-overlay {
+  z-index: 5000;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent-yellow);
+  border-radius: 50%;
+  animation: modalSpin 1s linear infinite;
+  margin: 0 auto 16px auto;
+}
+
+@keyframes modalSpin {
+  to { transform: rotate(360deg); }
+}

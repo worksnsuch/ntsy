@@ -1,0 +1,60 @@
+:root {
+  --bg-dark: #0A0A0B;
+  --bg-sidebar: #121214;
+  --bg-panel: #1C1C1E;
+  --bg-panel-hover: #2C2C2E;
+  --text-primary: #FFFFFF;
+  --text-secondary: #8E8E93;
+  --accent-red: #FF453A;
+  --accent-yellow: #FFD60A;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.04);
+  --font-main: 'SF Pro Display', 'Inter', system-ui, -apple-system, sans-serif;
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+  --bg-widget: rgba(28, 28, 30, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-blur: 30px;
+  --bg-widget-hover: rgba(44, 44, 46, 0.8);
+  --bg-secondary: rgba(255, 255, 255, 0.08);
+  --bg-secondary-hover: rgba(255, 255, 255, 0.12);
+  --border-widget: rgba(255, 255, 255, 0.06);
+  --shadow-active: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --transition-fluid: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-snappy: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --timing-standard: 0.3s;
+  --timing-fast: 0.2s;
+  --timing-slow: 0.5s;
+  --bg-glass: rgba(10, 10, 11, 0.8);
+  --bg-sidebar-footer: rgba(18, 18, 20, 0.8);
+  --bg-search: rgba(255, 255, 255, 0.05);
+}
+
+/* Light Mode Overrides */
+.light-theme {
+  --bg-dark: #F2F2F7;
+  --bg-sidebar: #FFFFFF;
+  --bg-panel: #E5E5EA;
+  --bg-panel-hover: #D1D1D6;
+  --text-primary: #1C1C1E;
+  --text-secondary: #636366;
+  --accent-red: #E0312F;
+  --accent-yellow: #C9A000;
+  --border-color: rgba(0, 0, 0, 0.12);
+  --border-light: rgba(0, 0, 0, 0.08);
+  --bg-widget: #FFFFFF;
+  --bg-widget-hover: rgba(0, 0, 0, 0.03);
+  --bg-secondary: rgba(0, 0, 0, 0.05);
+  --bg-secondary-hover: rgba(0, 0, 0, 0.08);
+  --border-widget: rgba(0, 0, 0, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --shadow-active: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-sidebar-footer: #F9F9F9;
+  --bg-search: rgba(0, 0, 0, 0.06);
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
