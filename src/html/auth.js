@@ -1,3 +1,5 @@
+import favicon from '../assets/favicon.png';
+
 window.AUTH_FRAGMENT = `
 <!-- Auth Wrapper -->
 <div id="auth-wrapper" class="auth-wrapper">
@@ -5,7 +7,7 @@ window.AUTH_FRAGMENT = `
   <!-- 1. Landing View -->
   <div id="landing-auth" class="auth-view active-auth center-layout">
     <div class="landing-container flex-center direction-col" style="height: 100%;">
-      <img src="../assets/favicon.png" class="landing-doc-icon mb-6" style="width: 72px; height: auto; transform: rotate(12deg);" alt="NTSY Logo">
+      <img src="${favicon}" class="landing-doc-icon mb-6" style="width: 72px; height: auto; transform: rotate(12deg);" alt="NTSY Logo">
       <h1 class="welcome-title" style="font-size: 42px; margin-bottom: 24px;">
         <span style="font-weight: 400;">Start</span> <span style="font-weight: 700;" id="typewriter-text">Studying</span><span class="typewriter-cursor">|</span>
       </h1>
@@ -18,7 +20,7 @@ window.AUTH_FRAGMENT = `
     <div class="split-layout">
       <!-- Dark Side (Left) -->
       <div class="split-half split-dark logo-center">
-        <img class="auth-logo" src="src/assets/favicon.png" style="width: 140px; height: auto;" alt="Logo">
+        <img class="auth-logo" src="${favicon}" style="width: 140px; height: auto;" alt="Logo">
       </div>
       <!-- White Side (Right) -->
       <div class="split-half split-white flex-center direction-col">
