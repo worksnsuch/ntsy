@@ -340,7 +340,7 @@ window.initChatBuddy = function () {
     }
 
     // THE PROJECT-WIDE SHARED KEY (Provides "Pro" AI for all users by default)
-    const NTSY_GLOBAL_GROQ_KEY = "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";
+    const NTSY_GLOBAL_GROQ_KEY = import.meta.env.VITE_GROQ_API_KEY || "";
 
     async function handleAIResponse(userText) {
         showTyping(true);
