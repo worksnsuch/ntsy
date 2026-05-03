@@ -5,7 +5,7 @@ window.AUTH_FRAGMENT = `
   <!-- 1. Landing View -->
   <div id="landing-auth" class="auth-view active-auth center-layout">
     <div class="landing-container flex-center direction-col" style="height: 100%;">
-      <img src="/assets/favicon.png" class="landing-doc-icon mb-6" style="width: 72px; height: auto; transform: rotate(12deg);" alt="NTSY Logo">
+      <img src="../assets/favicon.png" class="landing-doc-icon mb-6" style="width: 72px; height: auto; transform: rotate(12deg);" alt="NTSY Logo">
       <h1 class="welcome-title" style="font-size: 42px; margin-bottom: 24px;">
         <span style="font-weight: 400;">Start</span> <span style="font-weight: 700;" id="typewriter-text">Studying</span><span class="typewriter-cursor">|</span>
       </h1>
@@ -176,7 +176,7 @@ window.AUTH_FRAGMENT = `
   <!-- 6. Email Confirmation View -->
   <div id="confirmation-auth" class="auth-view center-layout swipe-right">
     <div class="confirmation-container text-center">
-      <img class="auth-logo mb-6" src="src/assets/favicon.png" style="width: 60px; height: auto;" alt="Logo">
+      <img class="auth-logo mb-6" src="../assets/favicon.png" style="width: 60px; height: auto;" alt="Logo">
       <h2 class="mb-2" style="color: var(--text-primary);">Almost there!</h2>
       <p class="subtitle mb-8" style="color: var(--text-secondary);">We've sent a verification link to your email.<br>Please confirm your email to activate your account,<br>then click below to sign in.</p>
       <div class="smiley-icon mb-8">
