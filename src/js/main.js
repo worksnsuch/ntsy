@@ -1,3 +1,6 @@
+// Import Supabase client first (uses Vite env variables)
+import '../../supabaseClient.js';
+
 // Import all HTML components
 import '../html/sidebar.js';
 import '../html/homepage.js';
@@ -28,7 +31,19 @@ import './settingsManager.js';
 import './profileManager.js';
 import './printManager.js';
 import './authManager.js';
-import './supabaseClient.js';
+
+// Wait for Supabase to be initialized
+async function waitForSupabase(maxAttempts = 50) {
+    for (let i = 0; i < maxAttempts; i++) {
+        if (window.supabaseClient) {
+            console.log('[Main] Supabase client ready');
+            return true;
+        }
+        await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    console.warn('[Main] Supabase client not initialized after waiting');
+    return false;
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
     // Apply theme immediately before components load to prevent flash
@@ -36,6 +51,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
     }
+
+    // Wait for Supabase to initialize
+    await waitForSupabase();
 
     // 1. Load HTML Components first
     if (window.ComponentLoader) {

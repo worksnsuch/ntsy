@@ -250,6 +250,12 @@ window.initAuth = function () {
       const btn = loginForm.querySelector('button[type="submit"]');
       setButtonLoading(btn, true, 'Signing in...');
 
+      if (!window.supabaseClient) {
+        showAuthError('login-error', 'Authentication service not available. Please refresh the page.');
+        setButtonLoading(btn, false);
+        return;
+      }
+
       const { error } = await window.supabaseClient.auth.signInWithPassword({ email, password: pass });
 
       setButtonLoading(btn, false);
@@ -282,6 +288,12 @@ window.initAuth = function () {
       const btn = signupForm.querySelector('button[type="submit"]');
       setButtonLoading(btn, true, 'Creating account...');
 
+      if (!window.supabaseClient) {
+        showAuthError('signup-error', 'Authentication service not available. Please refresh the page.');
+        setButtonLoading(btn, false);
+        return;
+      }
+
       const { error } = await window.supabaseClient.auth.signUp({
         email,
         password: pass1,
@@ -312,6 +324,12 @@ window.initAuth = function () {
       const btn = forgotForm.querySelector('button[type="submit"]');
       setButtonLoading(btn, true, 'Sending...');
 
+      if (!window.supabaseClient) {
+        showAuthError('forgot-error', 'Authentication service not available. Please refresh the page.');
+        setButtonLoading(btn, false);
+        return;
+      }
+
       const { error } = await window.supabaseClient.auth.resetPasswordForEmail(email, {
         redirectTo: `${window.location.origin}`,
       });
@@ -333,6 +351,13 @@ window.initAuth = function () {
       const originalHTML = googleLoginBtn.innerHTML;
       googleLoginBtn.innerHTML = '<span style="font-size:12px;opacity:0.7;">Connecting...</span>';
       googleLoginBtn.disabled = true;
+
+      if (!window.supabaseClient) {
+        showAuthError('login-error', 'Authentication service not available. Please refresh the page.');
+        googleLoginBtn.innerHTML = originalHTML;
+        googleLoginBtn.disabled = false;
+        return;
+      }
 
       const { error } = await window.supabaseClient.auth.signInWithOAuth({
         provider: 'google',
@@ -357,6 +382,13 @@ window.initAuth = function () {
       const originalHTML = appleLoginBtn.innerHTML;
       appleLoginBtn.innerHTML = '<span style="font-size:12px;opacity:0.7;">Connecting...</span>';
       appleLoginBtn.disabled = true;
+
+      if (!window.supabaseClient) {
+        showAuthError('login-error', 'Authentication service not available. Please refresh the page.');
+        appleLoginBtn.innerHTML = originalHTML;
+        appleLoginBtn.disabled = false;
+        return;
+      }
 
       const { error } = await window.supabaseClient.auth.signInWithOAuth({
         provider: 'apple',
