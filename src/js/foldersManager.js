@@ -2,7 +2,7 @@ const FOLDERS_KEY = 'notesApp_folders';
 window.folders = [];
 let folders = window.folders;
 
-let currentFilterFolderId = null; 
+window.currentFilterFolderId = null; 
 // sessionUnlockedFolders removed to enforce password prompt every time
 let isFoldersExpanded = false;
 
@@ -40,14 +40,14 @@ function renderFolders() {
   foldersList.innerHTML = '';
 
   const allOption = document.createElement('li');
-  allOption.className = `folder-item ${currentFilterFolderId === null ? 'active' : ''}`;
+  allOption.className = `folder-item ${window.currentFilterFolderId === null ? 'active' : ''}`;
   allOption.innerHTML = `
     <div class="color-dot" style="background-color: var(--text-secondary);"></div>
     <span>Uncategorized</span>
   `;
   allOption.style.animation = 'folderPop 0.3s ease-out backwards';
   allOption.addEventListener('click', () => {
-    currentFilterFolderId = null;
+    window.currentFilterFolderId = null;
     renderFolders();
     if (typeof showView === 'function') showView('homepage-view');
     if (typeof renderNotes === 'function') renderNotes();
@@ -78,9 +78,9 @@ function renderFolders() {
   let visibleFolders = folders;
   if (!isFoldersExpanded && folders.length > 3) {
     visibleFolders = folders.slice(0, 3);
-    if (currentFilterFolderId) {
-      if (!visibleFolders.find(f => f.id === currentFilterFolderId)) {
-        const activeF = folders.find(f => f.id === currentFilterFolderId);
+    if (window.currentFilterFolderId) {
+      if (!visibleFolders.find(f => f.id === window.currentFilterFolderId)) {
+        const activeF = folders.find(f => f.id === window.currentFilterFolderId);
         if (activeF) visibleFolders.push(activeF);
       }
     }
@@ -88,7 +88,7 @@ function renderFolders() {
 
   visibleFolders.forEach((folder, index) => {
     const li = document.createElement('li');
-    li.className = `folder-item flex-item ${currentFilterFolderId === folder.id ? 'active' : ''} ${folder.isLocked ? 'is-locked' : ''} ${folder.isPriority ? 'is-priority' : ''}`;
+    li.className = `folder-item flex-item ${window.currentFilterFolderId === folder.id ? 'active' : ''} ${folder.isLocked ? 'is-locked' : ''} ${folder.isPriority ? 'is-priority' : ''}`;
     li.style.animation = 'folderPop 0.3s ease-out backwards';
     li.style.animationDelay = `${(index + 1) * 40}ms`;
     
@@ -116,7 +116,7 @@ function renderFolders() {
          const newName = input.value.trim();
          if (newName && newName !== currentName) { folder.name = newName; saveFolders(); }
          renderFolders();
-         if (currentFilterFolderId === folder.id && typeof renderNotes === 'function') renderNotes();
+         if (window.currentFilterFolderId === folder.id && typeof renderNotes === 'function') renderNotes();
       };
       input.addEventListener('blur', finishEditing);
       input.addEventListener('keydown', (evt) => {
@@ -151,14 +151,14 @@ function renderFolders() {
         if (typeof showPasscodeModal !== 'function') return;
         showPasscodeModal('Folder Locked', 'Enter passcode to view contents.', (pin) => {
           if (pin === folder.passcode) {
-            currentFilterFolderId = folder.id;
+            window.currentFilterFolderId = folder.id;
             renderFolders();
             if (typeof renderNotes === 'function') renderNotes();
           } else { alert('Incorrect Passcode.'); }
         });
         return;
       }
-      currentFilterFolderId = folder.id;
+      window.currentFilterFolderId = folder.id;
       renderFolders();
       if (typeof showView === 'function') showView('homepage-view');
       if (typeof renderNotes === 'function') renderNotes();
@@ -182,7 +182,7 @@ function renderFolders() {
       } else {
         showPasscodeModal('Lock Folder', 'Enter a 4-digit PIN to lock this folder.', (pin) => {
           folder.isLocked = true; folder.passcode = pin; 
-          if (currentFilterFolderId === folder.id) currentFilterFolderId = null;
+          if (window.currentFilterFolderId === folder.id) window.currentFilterFolderId = null;
           saveFolders(); renderFolders(); if (typeof renderNotes === 'function') renderNotes();
         });
       }
@@ -194,7 +194,7 @@ function renderFolders() {
         showConfirmModal(`Delete the "${folder.name}" folder? Notes inside will become uncategorized.`, () => {
           folders = folders.filter(f => f.id !== folder.id);
           deleteFolderFromDB(folder.id);
-          if (currentFilterFolderId === folder.id) currentFilterFolderId = null;
+          if (window.currentFilterFolderId === folder.id) window.currentFilterFolderId = null;
           saveFolders(); renderFolders();
           if (typeof notes !== 'undefined') {
             notes.forEach(n => { if (n.folderId === folder.id) n.folderId = null; });

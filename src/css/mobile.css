@@ -11,14 +11,51 @@
     top: 0;
     left: 0;
     height: 100vh;
+    height: 100dvh;
+    /* Dynamic viewport height for mobile browsers */
     z-index: 2000;
     transform: translateX(-100%);
     transition: transform var(--transition-fluid);
     width: 280px;
+    /* Fully opaque — eliminates the GPU blur artifact caused by
+       backdrop-filter + will-change + transform transition on mobile */
+    background-color: #121214 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    /* Disable entrance animation & compositing hints that trigger the blur */
+    animation: none !important;
+    will-change: transform !important;
+    transform: translateX(-100%) translateZ(0);
+    box-shadow: 24px 0 60px rgba(0, 0, 0, 0.7);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .light-theme .sidebar {
+    background-color: #FFFFFF !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    animation: none !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 24px 0 60px rgba(0, 0, 0, 0.15);
   }
 
   .sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
+  }
+
+  /* Also kill backdrop-filter on widgets inside the sidebar on mobile
+     to prevent child stacking-context blur leaking through */
+  .sidebar .widget {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+  }
+
+  .light-theme .sidebar .widget {
+    background: rgba(0, 0, 0, 0.04) !important;
   }
 
   .sidebar-overlay {
@@ -29,8 +66,6 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    z-index: 1500;
     opacity: 0;
     transition: opacity 0.4s ease;
   }
@@ -60,12 +95,49 @@
     padding: 0;
   }
 
+  .main-header {
+    flex-wrap: wrap;
+    gap: 16px 12px;
+  }
+
+  .header-left {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .header-right {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px !important;
+    justify-content: space-between;
+  }
+
   .search-container {
-    width: 200px;
+    flex: 1;
+    width: auto !important;
+    max-width: none;
   }
 
   .search-container:focus-within {
-    width: 100%;
+    width: auto !important;
+  }
+
+  .floating-music-player {
+    left: 16px !important;
+    right: 16px !important;
+    width: calc(100vw - 32px) !important;
+    max-width: 380px !important;
+    bottom: 20px !important;
+    max-height: calc(100vh - 40px) !important;
+    transform-origin: left bottom !important;
+  }
+
+  .floating-music-player.minimized {
+    left: 16px !important;
+    right: auto !important;
+    width: 44px !important;
+    height: 104px !important;
   }
 
   .note-body-wrapper {

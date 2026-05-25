@@ -328,8 +328,8 @@ window.renderNotes = function() {
       (n.body && n.body.toLowerCase().includes(searchTerm))
     );
   } else {
-    filteredNotes = (typeof currentFilterFolderId !== 'undefined' && currentFilterFolderId !== null)
-      ? window.notes.filter(n => n.folderId === currentFilterFolderId)
+    filteredNotes = (typeof window.currentFilterFolderId !== 'undefined' && window.currentFilterFolderId !== null)
+      ? window.notes.filter(n => n.folderId === window.currentFilterFolderId)
       : window.notes.filter(n => n.folderId === null);
   }
 
@@ -338,8 +338,8 @@ window.renderNotes = function() {
   const headerTitle = document.querySelector('.main-header h1');
   if (searchTerm && headerTitle) {
       headerTitle.textContent = 'Search Results';
-  } else if (headerTitle && typeof currentFilterFolderId !== 'undefined' && currentFilterFolderId) {
-     const f = folders.find(f => f.id === currentFilterFolderId);
+  } else if (headerTitle && typeof window.currentFilterFolderId !== 'undefined' && window.currentFilterFolderId) {
+     const f = folders.find(f => f.id === window.currentFilterFolderId);
       if (f) {
         const editHtml = `<button id="header-folder-edit-btn" class="icon-btn header-action-btn" title="Rename Folder">
           <i data-lucide="edit-2" style="width:20px; height:20px; color: var(--text-secondary);"></i>
@@ -453,7 +453,7 @@ window.renderNotes = function() {
                 showConfirmModal(`Delete the "${f.name}" folder? Notes inside will become uncategorized.`, () => {
                   if (typeof folders !== 'undefined') {
                     folders = folders.filter(fol => fol.id !== f.id);
-                    currentFilterFolderId = null;
+                    window.currentFilterFolderId = null;
                     if (typeof saveFolders === 'function') saveFolders();
                     if (typeof renderFolders === 'function') renderFolders();
                     
@@ -636,7 +636,7 @@ function _openEditorInternal(id = null) {
     bodyInput.style.wordSpacing = 'normal';
     bodyInput.style.letterSpacing = 'normal';
     if (typeof window.changePageMargin === 'function') window.changePageMargin('normal');
-    if (typeof populateFolderDropdown === 'function') populateFolderDropdown(selectElement, currentFilterFolderId);
+    if (typeof populateFolderDropdown === 'function') populateFolderDropdown(selectElement, window.currentFilterFolderId);
     renderPdfAttachments([]);
   }
   

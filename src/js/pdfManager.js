@@ -403,7 +403,7 @@ function createNewPdfNote_Internal(title, body, attachmentResult = null) {
         id: newId,
         title: title,
         body: body,
-        folderId: currentFilterFolderId || null,
+        folderId: window.currentFilterFolderId || null,
         isLocked: false,
         passcode: null,
         lineHeight: '1.6',
