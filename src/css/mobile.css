@@ -182,3 +182,42 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .aut-back-button {
+    margin-bottom: 80px;
+  }
+
+
+  /* Auth Screen Mobile Layout: Stack logo above login form */
+  .split-layout {
+    flex-direction: column-reverse;
+  }
+
+  /* Upper half containing the logo */
+  .split-dark {
+    flex: 0 0 30%;
+    /* Do not grow, shrink to fit content */
+    height: auto;
+    width: 100%;
+    padding: 60px 0 0px 0;
+    /* Space at top, little space at bottom */
+    background-color: var(--bg-sidebar);
+    /* Blend with login form */
+  }
+
+  .split-dark .auth-logo {
+    width: 80px !important;
+    /* Smaller logo for mobile */
+  }
+
+  /* Lower half containing the login form */
+  .split-white {
+    flex: 1;
+    /* Take the rest of the available height */
+    width: 100%;
+    justify-content: flex-start;
+    /* Push the form up toward the logo */
+    padding-top: 140px;
+  }
+}
