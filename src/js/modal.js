@@ -129,3 +129,4 @@ function closePasscodeModal() {
 }
 
 // initModal is called explicitly by main.js after all components have been loaded.
+window.initModal = initModal;

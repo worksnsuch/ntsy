@@ -66,6 +66,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
+    z-index: 1500; /* Must be higher than main content to intercept clicks */
     opacity: 0;
     transition: opacity 0.4s ease;
   }
