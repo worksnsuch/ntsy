@@ -19,7 +19,7 @@ window.PROFILE_FRAGMENT = `
                 <div class="stat-icon"><i data-lucide="file-text" size="24"></i></div>
                 <div class="stat-info">
                     <h3>Total Notes</h3>
-                    <div class="stat-value" id="profile-total-notes">0</div>
+                    <div class="stat-value" id='profile-total-notes'>0</div>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@ window.PROFILE_FRAGMENT = `
                 <div class="stat-icon"><i data-lucide="clock" size="24"></i></div>
                 <div class="stat-info">
                     <h3>Time Spent</h3>
-                    <div class="stat-value" id="profile-total-time">0m</div>
+                    <div class="stat-value" id='profile-total-time'>0m</div>
                 </div>
             </div>
 
