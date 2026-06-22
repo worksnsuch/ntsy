@@ -48,7 +48,7 @@
         if (toolbarTop < parent.scrollTop) toolbarTop = top + h + 8;
         toolbar.style.top = `${toolbarTop}px`;
         toolbar.style.left = `${left}px`;
-        if (typeof lucide !== 'undefined') lucide.createIcons();
+        window.safeCreateIcons();
       }
 
       editorBody.addEventListener('click', (e) => {

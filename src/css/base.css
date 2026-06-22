@@ -154,12 +154,10 @@ button {
 
 .widget:hover {
   background: var(--bg-widget-hover);
-  transform: translateY(-2px);
   box-shadow: var(--shadow-exp);
 }
 
 .widget:active {
-  transform: translateY(0) scale(0.98);
   box-shadow: var(--shadow-active);
 }
 
@@ -186,21 +184,21 @@ button {
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color var(--transition-snappy), transform var(--transition-snappy), box-shadow var(--transition-snappy);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   letter-spacing: -0.1px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .btn:hover {
   background-color: var(--bg-secondary-hover);
-  transform: translateY(-1px) scale(1.02);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
-  transform: translateY(0) scale(0.97);
   box-shadow: none;
 }
 
@@ -208,7 +206,7 @@ button {
   background: transparent !important;
   color: var(--text-primary) !important;
   border: 1.5px solid var(--border-color) !important;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-secondary:hover {
@@ -219,7 +217,7 @@ button {
   background: transparent !important;
   color: var(--accent-red) !important;
   border: 1.5px solid var(--accent-red) !important;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.15s ease;
 }
 
 .btn-danger:hover {
@@ -235,7 +233,9 @@ button {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  transition: color 0.2s;
+  transition: color 0.15s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .icon-btn:hover {

@@ -189,7 +189,7 @@ function renderAllTasks() {
     allTasksList.appendChild(card);
   });
   
-  if (typeof lucide !== 'undefined') lucide.createIcons();
+  window.safeCreateIcons();
 }
 
 function openTaskModal(task = null) {

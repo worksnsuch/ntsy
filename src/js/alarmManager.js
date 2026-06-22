@@ -186,7 +186,7 @@ function renderAlarmList() {
         list.appendChild(item);
     });
     
-    if (window.lucide) window.lucide.createIcons();
+    window.safeCreateIcons();
 }
 
 window.editAlarm = function(id) {

@@ -18,7 +18,7 @@ window.initChatBuddy = function () {
         if (isExpanding) {
             chatWindow.classList.add('expanded');
             fab.classList.add('hidden');
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            window.safeCreateIcons();
             setTimeout(() => input.focus(), 400);
             if (messageList.children.length === 0) {
                 sendAIInitialGreeting();
@@ -42,7 +42,7 @@ window.initChatBuddy = function () {
 
         if (isVisible) {
             container.classList.add('visible');
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            window.safeCreateIcons();
         } else {
             container.classList.remove('visible');
             // Force close window if it was open when hiding
@@ -162,7 +162,7 @@ window.initChatBuddy = function () {
         drawer.classList.toggle('active');
         if (drawer.classList.contains('active')) {
             window.renderHistoryList();
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            window.safeCreateIcons();
         }
     };
 
@@ -238,7 +238,7 @@ window.initChatBuddy = function () {
                 }
 
                 window.renderHistoryList();
-                if (typeof lucide !== 'undefined') lucide.createIcons();
+                window.safeCreateIcons();
             }
         }
     };

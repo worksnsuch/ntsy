@@ -150,7 +150,7 @@ function renderEventsList() {
       el.querySelector('.edit-event-btn').addEventListener('click', () => openEventModal(evt));
       eventsList.appendChild(el);
     });
-    if (typeof lucide !== 'undefined') lucide.createIcons();
+    window.safeCreateIcons();
   }
 }
 

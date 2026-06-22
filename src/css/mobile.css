@@ -182,13 +182,27 @@
   .notes-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Extra adjustments for very small screens */
+  #alarm-modal .modal-box {
+    padding: 20px;
+  }
+
+  .alarm-time-picker {
+    padding: 12px 8px;
+    gap: 8px;
+  }
+
+  .alarm-time-input {
+    width: 46px;
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 768px) {
   .aut-back-button {
     margin-bottom: 80px;
   }
-
 
   /* Auth Screen Mobile Layout: Stack logo above login form */
   .split-layout {
@@ -220,5 +234,34 @@
     justify-content: flex-start;
     /* Push the form up toward the logo */
     padding-top: 140px;
+  }
+
+  /* New Alarm Modal Adjustments */
+  #alarm-modal .modal-box {
+    width: 100% !important; /* Override inline width */
+    padding: 24px;
+  }
+
+  .alarm-time-picker {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .alarm-time-picker .time-input-group {
+    gap: 6px;
+  }
+
+  .alarm-time-input {
+    width: 54px;
+    font-size: 36px;
+  }
+
+  .ampm-toggle {
+    margin-left: 4px;
+  }
+
+  .ampm-btn {
+    min-width: 44px;
+    padding: 8px 8px;
   }
 }

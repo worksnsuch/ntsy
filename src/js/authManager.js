@@ -119,7 +119,7 @@ window.switchAuthView = function (targetViewId) {
     }
   });
 
-  if (window.lucide) lucide.createIcons();
+  window.safeCreateIcons();
 };
 
 // ---------------------------------------------------------------------------
@@ -368,7 +368,7 @@ window.initAuth = function () {
         showAuthError('login-error', error.message);
         googleLoginBtn.innerHTML = originalHTML;
         googleLoginBtn.disabled = false;
-        if (window.lucide) lucide.createIcons();
+        window.safeCreateIcons();
       }
       // On success, browser redirects — no need to restore button
     });
@@ -399,7 +399,7 @@ window.initAuth = function () {
         showAuthError('login-error', error.message);
         appleLoginBtn.innerHTML = originalHTML;
         appleLoginBtn.disabled = false;
-        if (window.lucide) lucide.createIcons();
+        window.safeCreateIcons();
       }
     });
   }
@@ -424,7 +424,7 @@ window.initAuth = function () {
       newIcon.setAttribute('data-lucide', isPassword ? 'eye-off' : 'eye');
       newIcon.className = 'pwd-toggle';
       toggle.replaceWith(newIcon);
-      if (window.lucide) lucide.createIcons();
+      window.safeCreateIcons();
     });
   }
 

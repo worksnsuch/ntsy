@@ -127,7 +127,6 @@
 }
 .auth-back-btn:hover {
   color: var(--text-primary);
-  transform: translateX(-4px);
 }
 
 /* Typography */
@@ -189,13 +188,14 @@
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+  transition: opacity 0.15s ease;
   min-width: 140px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .classic-btn:active {
-  transform: translateY(0) scale(0.96);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .white-btn {
@@ -204,8 +204,7 @@
 }
 
 .white-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .dark-btn {
@@ -214,8 +213,7 @@
 }
 
 .dark-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .pill-btn {
@@ -229,18 +227,18 @@
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: all var(--transition-fluid, 0.4s ease);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .pill-btn:hover {
   background: var(--accent-yellow);
   color: var(--bg-dark);
   border: 1px solid var(--accent-yellow);
   box-shadow: 0 8px 30px rgba(255, 214, 10, 0.3);
-  transform: translateY(-2px);
 }
 .pill-btn:active {
-  transform: translateY(0) scale(0.96);
 }
 
 /* Forms */

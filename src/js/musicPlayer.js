@@ -130,7 +130,7 @@
                     });
                     musicQueueList.appendChild(resultItem);
                 });
-                if (window.lucide) window.lucide.createIcons();
+                window.safeCreateIcons();
             }
 
             function toggleMusicPlayer(e) {
@@ -145,7 +145,7 @@
                 if (icon && window.lucide) {
                     // Always use chevrons-down for a consistent minimize aesthetic
                     icon.setAttribute('data-lucide', 'chevrons-down');
-                    window.lucide.createIcons();
+                    window.safeCreateIcons();
                 }
             }
             let lastToggleTime = 0;
@@ -155,7 +155,7 @@
                 if (!query) return;
                 if (musicSearchBtn) {
                    musicSearchBtn.innerHTML = '<i data-lucide="loader" class="spin" size="14"></i>';
-                   if (window.lucide) window.lucide.createIcons();
+                   window.safeCreateIcons();
                 }
                 if (musicIdleState) musicIdleState.style.display = 'none';
                 if (musicPlayerView) musicPlayerView.style.display = 'none';
@@ -190,7 +190,7 @@
                                 localStorage.setItem('notesApp_music_queue', JSON.stringify(musicQueue));
                                 if (typeof window.syncSettingsToDB === 'function') window.syncSettingsToDB();
                                 addBtn.innerHTML = '<i data-lucide="check" size="14" style="color: var(--accent-green);"></i>';
-                                if (window.lucide) window.lucide.createIcons();
+                                window.safeCreateIcons();
                             });
                             musicSearchResults.appendChild(resultItem);
                         });
@@ -202,7 +202,7 @@
                 }
                 if (musicSearchBtn) {
                     musicSearchBtn.innerHTML = '<i data-lucide="search" size="14"></i>';
-                    if (window.lucide) window.lucide.createIcons();
+                    window.safeCreateIcons();
                 }
             }
 
@@ -228,11 +228,11 @@
                     clearInterval(progressInterval);
                     progressInterval = setInterval(updateProgressBar, 250);
                     if (ctrlPlayBtn) ctrlPlayBtn.innerHTML = '<i data-lucide="pause" size="24" fill="currentColor"></i>';
-                    if (window.lucide) window.lucide.createIcons();
+                    window.safeCreateIcons();
                 } else if (event.data === YT.PlayerState.PAUSED) {
                     clearInterval(progressInterval);
                     if (ctrlPlayBtn) ctrlPlayBtn.innerHTML = '<i data-lucide="play" size="24" fill="currentColor" style="padding-right: 4px;"></i>';
-                    if (window.lucide) window.lucide.createIcons();
+                    window.safeCreateIcons();
                 } else if (event.data === YT.PlayerState.ENDED) {
                     clearInterval(progressInterval);
                     if (isLooping && ytPlayer) {
@@ -243,7 +243,7 @@
                     } else {
                         // Queue empty, reset to Play icon
                         if (ctrlPlayBtn) ctrlPlayBtn.innerHTML = '<i data-lucide="play" size="24" fill="currentColor" style="padding-right: 4px;"></i>';
-                        if (window.lucide) window.lucide.createIcons();
+                        window.safeCreateIcons();
                     }
                 }
             }

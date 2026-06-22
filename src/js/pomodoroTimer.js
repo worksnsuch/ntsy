@@ -152,7 +152,7 @@ function showCompletionModal(isSetComplete = false) {
   msg.textContent = isSetComplete ? `You've finished ${SESSIONS_UNTIL_LONG_BREAK} sessions. Enjoy your long break!` : (state.currentSession === 'focus' ? 'Time for a well-deserved break.' : 'Ready to get back to work?');
   nextBtn.textContent = isSetComplete ? 'Start Long Break' : nextLabels[state.currentSession];
   modal.classList.add('visible');
-  if (window.lucide) window.lucide.createIcons();
+  window.safeCreateIcons();
   const handleNext = () => {
     modal.classList.remove('visible');
     stopPomodoroAlarm();

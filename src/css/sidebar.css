@@ -31,7 +31,7 @@
     box-shadow: 20px 0 40px rgba(0, 0, 0, 0.4);
     border-right: none;
   }
-  
+
   .sidebar.open {
     transform: translateX(0);
   }
@@ -44,7 +44,8 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  min-height: 0; /* Crucial for internal scrolling in flex children */
+  min-height: 0;
+  /* Crucial for internal scrolling in flex children */
 }
 
 .widget {
@@ -60,6 +61,7 @@
   padding: 10px;
   text-align: center;
 }
+
 .clock-day {
   font-size: 10px;
   font-weight: 600;
@@ -69,6 +71,7 @@
   margin-bottom: 0px;
   opacity: 0.8;
 }
+
 .clock-widget h2 {
   font-size: 28px;
   font-weight: 600;
@@ -77,6 +80,7 @@
   margin: 0px;
   line-height: 1.1;
 }
+
 .clock-date {
   font-size: 12px;
   color: var(--text-secondary);
@@ -87,11 +91,13 @@
 .music-widget {
   gap: 12px;
 }
+
 .music-info {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .album-art {
   width: 44px;
   height: 44px;
@@ -103,18 +109,22 @@
   justify-content: center;
   color: var(--text-secondary);
 }
+
 .track-details {
   display: flex;
   flex-direction: column;
 }
+
 .track-title {
   font-size: 14px;
   font-weight: 600;
 }
+
 .track-artist {
   font-size: 12px;
   color: var(--text-secondary);
 }
+
 .music-controls {
   display: flex;
   justify-content: center;
@@ -127,12 +137,14 @@
   align-items: center;
   gap: 12px;
 }
+
 .alarm-widget h3 {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.5px;
   margin: 4px 0 8px 0;
 }
+
 .widget-header {
   display: flex;
   justify-content: space-between;
@@ -141,7 +153,7 @@
   margin-bottom: 6px;
 }
 
-.widget-header > * {
+.widget-header>* {
   display: flex;
   align-items: center;
 }
@@ -212,10 +224,12 @@
 
 /* Priority Tracker */
 .priority-widget {
-  height: 210px; /* Fine-tuned height to fit 3 tasks perfectly with minimal dead space */
+  height: 210px;
+  /* Fine-tuned height to fit 3 tasks perfectly with minimal dead space */
   display: flex;
   flex-direction: column;
 }
+
 .priority-list {
   list-style: none;
   display: flex;
@@ -225,12 +239,14 @@
   flex: 1;
   overflow-y: hidden;
 }
+
 .priority-list li {
   display: flex;
   align-items: center;
   gap: 12px;
   font-size: 13px;
 }
+
 .priority-list input[type="checkbox"] {
   appearance: none;
   width: 18px;
@@ -242,10 +258,12 @@
   position: relative;
   transition: all 0.2s;
 }
+
 .priority-list input[type="checkbox"]:checked {
   background-color: var(--text-primary);
   border-color: var(--text-primary);
 }
+
 .priority-list input[type="checkbox"]:checked::after {
   content: "✓";
   position: absolute;
@@ -261,6 +279,7 @@
   margin-top: 16px;
   text-align: right;
 }
+
 .view-all {
   color: var(--text-secondary);
   font-size: 11px;
@@ -280,6 +299,7 @@
   border-top: 1px solid var(--border-color);
   z-index: 10;
 }
+
 .icon-text-btn {
   background: transparent;
   border: none;
@@ -291,6 +311,7 @@
   font-weight: 500;
   cursor: pointer;
 }
+
 .icon-text-btn:hover {
   background-color: var(--bg-secondary-hover);
   color: var(--text-primary);
@@ -298,8 +319,10 @@
   padding: 8px 12px;
   margin: -8px -12px;
 }
+
 /* Alarm Extensions */
-.ampm-btn, .day-btn {
+.ampm-btn,
+.day-btn {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
@@ -313,12 +336,14 @@
   user-select: none;
 }
 
-.ampm-btn:hover, .day-btn:hover {
+.ampm-btn:hover,
+.day-btn:hover {
   background: var(--bg-panel-hover);
   color: var(--text-primary);
 }
 
-.ampm-btn.active, .day-btn.active {
+.ampm-btn.active,
+.day-btn.active {
   background: var(--accent-yellow);
   color: #000;
   font-weight: 600;
@@ -383,7 +408,7 @@
   border: none;
   border-bottom: 2px solid var(--border-color);
   background: transparent;
-  padding: 12px 0;
+  padding: 12px 10px;
   color: var(--text-primary);
   outline: none;
   font-size: 16px;
@@ -400,20 +425,33 @@
 }
 
 @keyframes alarmPulse {
-  0% { transform: scale(1); background: var(--bg-widget); }
-  50% { transform: scale(1.02); background: rgba(255, 214, 10, 0.2); }
-  100% { transform: scale(1); background: var(--bg-widget); }
+  0% {
+    transform: scale(1);
+    background: var(--bg-widget);
+  }
+
+  50% {
+    transform: scale(1.02);
+    background: rgba(255, 214, 10, 0.2);
+  }
+
+  100% {
+    transform: scale(1);
+    background: var(--bg-widget);
+  }
 }
 
 /* New Alarm UI Elements */
-.btn-danger, .danger-btn {
+.btn-danger,
+.danger-btn {
   background: transparent !important;
   color: var(--accent-red) !important;
   border: 1.5px solid var(--accent-red) !important;
   transition: all 0.2s ease;
 }
 
-.btn-danger:hover, .danger-btn:hover {
+.btn-danger:hover,
+.danger-btn:hover {
   background: rgba(255, 69, 58, 0.1) !important;
 }
 
@@ -520,11 +558,11 @@
   border-radius: 50%;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: var(--accent-yellow);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(20px);
   background-color: #000;
 }

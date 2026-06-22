@@ -119,7 +119,7 @@ window._internalInitSettings = function() {
         };
     }
 
-    if (typeof lucide !== 'undefined') lucide.createIcons();
+    window.safeCreateIcons();
 
     // 5. Theme Selection Logic
     initThemeSettings();
@@ -319,7 +319,7 @@ function renderSidebarOrderList() {
         }, { offset: Number.NEGATIVE_INFINITY }).element;
     }
 
-    if (typeof lucide !== 'undefined') lucide.createIcons();
+    window.safeCreateIcons();
 }
 
 function applySidebarOrder() {
@@ -384,7 +384,7 @@ function renderSettingsFonts() {
         </div>
     `).join('');
     
-    if (typeof lucide !== 'undefined') lucide.createIcons();
+    window.safeCreateIcons();
 }
 
 window.deleteFontFromSettings = function(name) {

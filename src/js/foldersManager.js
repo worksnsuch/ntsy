@@ -229,7 +229,7 @@ function renderFolders() {
     toggleLi.addEventListener('click', () => { isFoldersExpanded = !isFoldersExpanded; renderFolders(); });
     foldersList.appendChild(toggleLi);
   }
-  if (typeof lucide !== 'undefined') lucide.createIcons();
+  window.safeCreateIcons();
 }
 
 function showColorPicker(folderId, anchorElement) {

@@ -74,7 +74,7 @@ window.showView = function(viewId) {
     window.toggleStudyBuddyVisibility(viewId === 'editor-view');
   }
 
-  if (typeof lucide !== 'undefined') lucide.createIcons();
+  window.safeCreateIcons();
 };
 
 function adjustFontSize(delta) {
@@ -470,7 +470,7 @@ window.renderNotes = function() {
               }
             });
           }
-          if (typeof lucide !== 'undefined') lucide.createIcons();
+          window.safeCreateIcons();
         }, 0);
       }
   } else if (headerTitle) {
@@ -566,9 +566,7 @@ window.renderNotes = function() {
     notesGrid.appendChild(card);
   });
   
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
+  window.safeCreateIcons();
 }
 
 function updateLockIconState() {
@@ -579,7 +577,7 @@ function updateLockIconState() {
     lockNoteBtn.innerHTML = '<i data-lucide="unlock" size="20"></i>';
     lockNoteBtn.classList.remove('active');
   }
-  if (typeof lucide !== 'undefined') lucide.createIcons();
+  window.safeCreateIcons();
 }
 
 function openEditor(id = null) {
@@ -1072,7 +1070,7 @@ function updateViewLayout() {
     notesGridEl.classList.remove('list-view');
     if (viewToggleIcon) viewToggleIcon.setAttribute('data-lucide', 'layout-list');
   }
-  if (typeof lucide !== 'undefined') lucide.createIcons();
+  window.safeCreateIcons();
 }
 
 window.setViewMode = function(isList) {
@@ -1478,7 +1476,7 @@ function renderPdfAttachments(attachments) {
         }
     };
 
-    if (typeof lucide !== 'undefined') lucide.createIcons();
+    window.safeCreateIcons();
 }
 
 window.activePdfText = ""; // Global buffer for AI assistance

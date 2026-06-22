@@ -187,7 +187,7 @@
 
         if (timeEl) timeEl.innerText = formatDuration(totalSeconds);
 
-        if (window.lucide && isViewVisible('profile-view')) lucide.createIcons();
+        if (isViewVisible('profile-view')) window.safeCreateIcons();
     }
 
     function isViewVisible(viewId) {

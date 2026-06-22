@@ -41,7 +41,7 @@
 }
 
 /* Specific Modal Sizes */
-#confirm-modal .modal-box, 
+#confirm-modal .modal-box,
 #passcode-modal .modal-box {
   width: 320px;
 }
@@ -119,6 +119,10 @@
 .pdf-mode-info p {
   font-size: 12px;
   opacity: 0.7;
+}
+
+.alarm-label-input {
+  margin: 0 10px;
 }
 
 /* Common Modal Buttons */
@@ -210,5 +214,7 @@
 }
 
 @keyframes modalSpin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }

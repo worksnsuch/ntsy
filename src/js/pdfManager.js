@@ -213,7 +213,7 @@ async function handlePdfImport(file) {
                 modal.classList.remove('visible');
             };
             
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            window.safeCreateIcons();
 
             document.getElementById('mode-attach-btn').onclick = () => {
                 if (file.size > LOCAL_STORAGE_ATTACHMENT_CAP) {
@@ -332,7 +332,7 @@ window.initPdfManager = function() {
                 
                 if (result) {
                     processPdfImportResult(result);
-                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                    window.safeCreateIcons();
                 }
             }
             fileInput.value = '';

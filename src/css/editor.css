@@ -151,10 +151,12 @@
   justify-content: center;
   border-radius: 8px;
   color: var(--text-secondary);
-  transition: all 0.2s;
+  transition: background 0.15s ease, color 0.15s ease;
   background: transparent;
   border: none;
   cursor: pointer;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .tbar-btn:hover {

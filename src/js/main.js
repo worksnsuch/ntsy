@@ -1,6 +1,21 @@
 // Import Supabase client first (uses Vite env variables)
 import '../../supabaseClient.js';
 
+// Batch lucide.createIcons calls into a single rAF to prevent flicker from rapid re-renders
+(function() {
+  let _lucideScheduled = false;
+  window.safeCreateIcons = function() {
+    if (_lucideScheduled) return;
+    _lucideScheduled = true;
+    requestAnimationFrame(() => {
+      _lucideScheduled = false;
+      if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
+    });
+  };
+})();
+
 // Import all HTML components
 import '../html/sidebar.js';
 import '../html/homepage.js';
@@ -106,9 +121,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     safeInit("Profile", "initProfile");
     safeInit("Settings", "initSettings");
 
-    if (window.lucide) {
-        lucide.createIcons();
-    }
+    window.safeCreateIcons();
 
 
     // About Modal Logic
